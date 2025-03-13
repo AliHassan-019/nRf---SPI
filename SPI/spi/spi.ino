@@ -18,7 +18,7 @@
 // ADS1299 Configuration
 #define VREF   2.5      // Reference voltage in volts
 #define GAIN   24       // Default Gain (CONFIG1 setting)
-#define SCALE  (VREF / (pow(2, 23) - 1)) * 1000000 / GAIN  // Conversion factor to µV
+#define SCALE  (VREF / (pow(2, 23) - 1)) * 1000000 / GAIN  
 
 void sendCommand(uint8_t command) {
   digitalWrite(ADS1299_CS, LOW);
@@ -83,7 +83,6 @@ long convert24bitToSignedInt(uint8_t *data) {
   return value;
 }
 
-// Read and convert EEG data to microvolts (µV)
 void readEEGData() {
   if (digitalRead(ADS1299_DRDY) == LOW) {
     digitalWrite(ADS1299_CS, LOW);
