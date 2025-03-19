@@ -76,8 +76,8 @@ long convert24bitToSignedInt(uint8_t *data) {
   long value = (data[0] << 16) | (data[1] << 8) | data[2];
   
   // Convert to signed 24-bit integer
-  if (value & 0x800000) {  // If negative (MSB is set)
-    value |= 0xFF000000;  // Sign extend to 32-bit
+  if (value & 0x800000) {  
+    value |= 0xFF000000;  
   }
   
   return value;
@@ -137,5 +137,5 @@ void setup() {
 
 void loop() {
   readEEGData();
-  delay(1500);
+  //delay(1500);
 }
